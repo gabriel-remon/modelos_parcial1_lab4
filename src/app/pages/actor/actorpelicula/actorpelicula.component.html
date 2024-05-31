@@ -1,0 +1,33 @@
+<section class="p-4 text-center container">
+    <div class="row ">
+        <div class="col-lg-8 col-md-8 mx-auto tabla">
+            <h3 class="m-5">Listado de peliculas</h3>
+            <app-tabla-actores (actorElegido)="actor($event)"></app-tabla-actores>
+        </div>
+    </div>
+</section>
+
+
+<div class="album py-5 bg-body-tertiary" *ngIf="actorSelec">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm p-2 ">
+                    <h3 class="text-center"> peliculas de {{actorSelec.nombre}}</h3>
+                    
+                    <app-tabla-pelicula [peliculas]="peliculas" [tablaMin]="true"></app-tabla-pelicula>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm p-2">
+                    <app-detalle-pais [pais]="paisSeleccionado"></app-detalle-pais>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm p-2">
+                    <app-detalle-actor [actor]="actorSelec"></app-detalle-actor>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

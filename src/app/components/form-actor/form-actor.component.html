@@ -1,0 +1,32 @@
+<form class="needs-validation" (submit)="submit()" [formGroup]="this.form">
+    <div class="row g-3">
+        <div class="col-12">
+            <label for="nombre" class="form-label">Nombre </label>
+            <input type="text" class="form-control" id="nombre" [formControl]="form.controls.nombre">
+            <div class="text-danger" *ngIf="form.get('nombre')?.touched">
+                <label *ngIf="form.controls.nombre.getError('required')">nombre requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="pais" class="form-label">Pais </label>
+            <input type="text" class="form-control" id="pais" [value]="pais.nombre" readonly [formControl]="form.controls.pais" >
+            <div class="text-danger" *ngIf="form.get('pais')?.touched">
+                <label *ngIf="form.controls.pais.getError('required')">pais requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="fecha" class="form-label">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="fecha"  [formControl]="form.controls.nacimiento">
+            <div class="text-danger" *ngIf="form.get('nacimiento')?.touched">
+                <label *ngIf="form.controls.nacimiento.getError('required')">fecha de nacimiento requerida</label>
+            </div>
+        </div>
+
+
+
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary btn-lg" type="" [disabled]="!form.valid"  [textContent]="tipoForm" ></button>
+</form>

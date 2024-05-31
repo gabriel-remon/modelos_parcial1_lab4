@@ -1,0 +1,40 @@
+<form class="needs-validation" (submit)="submit()" [formGroup]="this.form">
+    <div class="row g-3">
+        <div class="col-12">
+            <label for="nombre" class="form-label">Nombre </label>
+            <input type="text" class="form-control" id="nombre" [formControl]="form.controls.nombre">
+            <div class="text-danger" *ngIf="form.get('nombre')?.touched">
+                <label *ngIf="form.controls.nombre.getError('required')">nombre requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="ingredientes" class="form-label">Ingredientes</label>
+            <input type="text" class="form-control" id="ingredientes"  [formControl]="form.controls.ingredientes">
+            <div class="text-danger" *ngIf="form.get('ingredientes')?.touched">
+                <label *ngIf="form.controls.ingredientes.getError('required')">Ingrese los ingredientes de la pizza</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="text" class="form-control" id="precio" [formControl]="form.controls.precio" >
+            <div class="text-danger" *ngIf="form.get('precio')?.touched">
+                <label *ngIf="form.controls.precio.getError('required')">ingrese el precio de la pizza en $</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="peso" class="form-label">Peso</label>
+            <input type="number" class="form-control" id="peso" [formControl]="form.controls.peso" >
+            <div class="text-danger" *ngIf="form.get('peso')?.touched">
+                <label *ngIf="form.controls.peso.getError('required')">Ingrese el peso de la pizza </label>
+                <label *ngIf="form.controls.peso.getError('min')">debe pesar entre 500 y 1000 grm</label>
+                <label *ngIf="form.controls.peso.getError('max')">debe pesar entre 500 y 1000 grm</label>
+            </div>
+        </div>
+
+
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary btn-lg" type="" [disabled]="!form.valid"  [textContent]="tipoForm" ></button>
+</form>

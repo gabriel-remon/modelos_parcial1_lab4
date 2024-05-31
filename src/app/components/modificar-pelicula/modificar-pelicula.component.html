@@ -1,0 +1,50 @@
+<form class="needs-validation" novalidate="">
+    <div class="row g-3">
+
+        <div class="col-12">
+            <label for="nombre" class="form-label">Nombre </label>
+            <input type="text" class="form-control" id="nombre" [placeholder]="pelicula.Nombre">
+            <div class="invalid-feedback">
+                Ingresa una dirección de correo electrónico válida para recibir actualizaciones de envío.
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="fecha" class="form-label">Fecha de estreno</label>
+            <input type="date" class="form-control" id="fecha" [placeholder]="pelicula.fecha_estreno" >
+            <div class="invalid-feedback">
+                Ingresa tu dirección de envío.
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="foto" class="form-label">Portada</label>
+            <input type="file" class="form-control" id="foto"  >
+        </div>
+
+        <div class="col-md-6">
+            <label for="country" class="form-label">País</label>
+            <select class="form-select" id="country" [value]="pelicula.tipo" >
+                <option>terror</option>
+                <option>comedia</option>
+                <option>amor</option>
+                <option>otros</option>
+            </select>
+            <div class="invalid-feedback">
+                Selecciona un país válido.
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="zip" class="form-label">Cantidad de publico</label>
+            <input type="number" class="form-control" id="zip" [placeholder]="pelicula.cant_publico" >
+            <div class="invalid-feedback">
+                Se requiere código postal.
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary btn-lg" type="submit">Modificar pelicula</button>
+</form>

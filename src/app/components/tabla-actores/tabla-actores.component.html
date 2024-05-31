@@ -1,0 +1,21 @@
+ 
+
+<div  class="table-responsive">
+    <table class="table align-middle table-striped-columns ">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Pais de origen</th>
+            <th scope="col">Fecha de nacimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let actor of actores" id={{actor.id}} (click)="seleccionarPelicula(actor)">
+            <td>{{actor.nombre}}</td>
+            <td>{{actor.pais_origen}}</td>
+            <td>{{actor.fecha_nacimiento}}</td>
+          </tr>
+          
+        </tbody>
+    </table>
+</div>

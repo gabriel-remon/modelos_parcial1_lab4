@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table class="table align-middle table-striped-columns ">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">peso</th>
+                <th scope="col">Precio</th>
+                <th scope="col">ingredientes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pizza of pizzas" id={{pizza?.id}} (click)="seleccionarPelicula(pizza)">
+                <td>{{pizza?.nombre}}</td>
+                <td>{{pizza?.peso}} gr</td>
+                <td>${{pizza?.precio}}</td>
+                <td>{{pizza?.ingredientes}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

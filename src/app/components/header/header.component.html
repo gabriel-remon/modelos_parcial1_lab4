@@ -1,0 +1,49 @@
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom text-bg-dark ">
+        <a class="text-white d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4 me-2 bi" (click)="utlSvc.goto('bienvenido')">Primer parcial laboratorio 4</span>
+        </a>
+        <ul class="nav nav-pills ">
+
+                <li class="nav-item "><a (click)="utlSvc.goto('bienvenido')" class="text-white nav-link">
+                Bienvenido</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('busqueda')" class="text-white nav-link">
+                Busqueda</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('peliculas/listado')" class="text-white nav-link">
+                Listado peliculas</a></li>
+                
+                <li class="nav-item "><a (click)="utlSvc.goto('peliculas/alta')" class="text-white nav-link">
+                Alta pelicula</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('actor/listado')" class="text-white nav-link">Listado
+                actores</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('actor/alta')" class="text-white nav-link">
+                Alta actor</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('actor/actorpelicula')" class="text-white nav-link">Actor
+                Pais</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('repartidor/alta')" class="text-white nav-link">Alta
+                Repartidor</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('repartidor/listado')" class="text-white nav-link">Listado
+                Repartidor</a></li>
+                
+                <li class="nav-item "><a (click)="utlSvc.goto('pizzas')" class="text-white nav-link">
+                Pizzas</a></li>
+
+                <li class="nav-item "><a (click)="utlSvc.goto('helados')" class="text-white nav-link">
+                Helados</a></li>
+
+                <li class="nav-item " *ngIf="!user"><a (click)="utlSvc.goto('auth/login')"class="text-white nav-link active "
+                aria-current="page">login</a></li>
+                
+                <li class="nav-item " *ngIf="user"><a (click)="logout()" class="text-white nav-link active "
+                aria-current="page">Logout</a></li>
+        </ul>
+</header>

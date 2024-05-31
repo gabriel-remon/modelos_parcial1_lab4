@@ -1,0 +1,32 @@
+<section class="p-4 text-center container">
+    <div class="row ">
+        <div class="col-lg-8 col-md-8 mx-auto tabla">
+            <h3 class="m-5">Listado de peliculas</h3>
+            <app-tabla-pelicula (peliculaElegida)="seleccionarPelicula($event)"></app-tabla-pelicula>
+        </div>
+    </div>
+</section>
+
+
+<div class="album py-5 bg-body-tertiary" *ngIf="pelicula">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm p-2 ">
+                    <h3 class="text-center">{{pelicula.Nombre}}</h3>
+                    <button class="btn btn-danger rounded-pill px-3 m-3" type="button" (click)="eliminarPelicula()">Eliminar</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm p-2">
+                    <app-detalle-pelicula [pelicula]="pelicula"></app-detalle-pelicula>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm p-2">
+                    <app-form-pelicula [pelicula]="pelicula" (tareaRealizada)="limpiarCampos()"></app-form-pelicula>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

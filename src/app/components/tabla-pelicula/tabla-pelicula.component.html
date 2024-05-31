@@ -1,0 +1,27 @@
+ 
+
+<div  class="table-responsive">
+    <table class="table align-middle table-striped-columns ">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col" *ngIf="!tablaMin">publico</th>
+            <th scope="col" *ngIf="!tablaMin">Fecha de estreno</th>
+            <th scope="col" *ngIf="!tablaMin">Genero</th>
+            <th scope="col" *ngIf="!tablaMin">Protagonista</th>
+            <th scope="col">imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pelicula of peliculas" id={{pelicula?.id}} (click)="seleccionarPelicula(pelicula)">
+            <td>{{pelicula?.Nombre}}</td>
+            <td  *ngIf="!tablaMin">{{pelicula?.cant_publico}} personas</td>
+            <td  *ngIf="!tablaMin">{{pelicula?.fecha_estreno}}</td>
+            <td  *ngIf="!tablaMin">{{pelicula?.tipo}}</td>
+            <td  *ngIf="!tablaMin">{{pelicula?.actor?.nombre}}</td>
+            <td><img src={{pelicula?.src_foto}}  style="max-width: 150px; max-height: 150px;"></td>
+          </tr>
+          
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,63 @@
+
+<form class="needs-validation" (submit)="submit()" [formGroup]="this.form">
+    <div class="row g-3">
+        <div class="col-12">
+            <label for="nombre" class="form-label">Nombre </label>
+            <input type="text" class="form-control" id="nombre" [formControl]="form.controls.nombre">
+            <div class="text-danger" *ngIf="form.get('nombre')?.touched">
+                <label *ngIf="form.controls.nombre.getError('required')">nombre requerido</label>
+            </div>
+        </div>
+        
+        <div class="col-12">
+            <label for="nombreActor" class="form-label">Nombre actor </label>
+            <input type="text" class="form-control" id="nombreActor" readonly [formControl]="form.controls.nombreActor">
+            <div class="text-danger" *ngIf="form.get('nombreActor')?.touched">
+                <label *ngIf="form.controls.nombreActor.getError('required')">actor requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="fecha" class="form-label">Fecha de estreno</label>
+            <input type="date" class="form-control" id="fecha"  [formControl]="form.controls.fecha">
+            <div class="text-danger" *ngIf="form.get('fecha')?.touched">
+                <label *ngIf="form.controls.fecha.getError('required')">nombre requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="foto" class="form-label">Portada</label>
+            <input type="file" class="form-control" id="foto" (change)="onFileChange($event)" [formControl]="form.controls.imagen">
+            <div class="text-danger" *ngIf="form.get('imagen')?.touched">
+                <label *ngIf="form.controls.imagen.getError('required')">nombre requerido</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="Genero" class="form-label">Genero</label>
+            <select class="form-select" id="Genero"  [formControl]="form.controls.genero">
+                <option  value="" selected>Seleccione uno</option>
+                <option>otros</option>
+                <option>comedia</option>
+                <option>amor</option>
+                <option>terror</option>
+            </select>
+            <div class="text-danger" *ngIf="form.get('genero')?.touched">
+                <label *ngIf="form.controls.genero.getError('required')">nombre requerido</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="zip" class="form-label">Cantidad de publico</label>
+            <input type="number" class="form-control" id="zip" [formControl]="form.controls.cant_publico" >
+            <div class="text-danger" *ngIf="form.get('cant_jugadores')?.touched">
+                <label *ngIf="form.controls.cant_publico.getError('required')">ingrese la cantidad de publico </label>
+                <label *ngIf="form.controls.cant_publico.getError('min')">Ingrese por lo menos 1 persona</label>
+                <label *ngIf="form.controls.cant_publico.getError('max')">Ingrese menos de 200 personas </label>
+            </div>
+        </div>
+
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary btn-lg" type="" [disabled]="!form.valid"  [textContent]="tipoForm" ></button>
+</form>
